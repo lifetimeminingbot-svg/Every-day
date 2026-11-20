@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVERYDAY ROUTINE - Your Everyday Life, One App</title>
+    
+    <!-- Google Fonts: Noto Sans Bengali & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (Modern Clean Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top App Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="app-logo">
+                <i class="ph-fill ph-calendar-check"></i>
+            </div>
+            <div>
+                <h1 class="app-title">EVERYDAY ROUTINE</h1>
+                <p class="app-tagline">Your Everyday Life, One App.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <button id="langToggleBtn" class="lang-btn" title="Change Language">EN / বাং</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container" id="appContent">
+        
+        <!-- Welcome Banner Card -->
+        <section class="welcome-card">
+            <div class="welcome-text">
+                <span class="badge-live">Phase 1: System Ready</span>
+                <h2 data-bn="স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো" data-en="Welcome! Organize Your Everyday Life">স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো</h2>
+                <p id="currentDateDisplay" class="date-text">তারিখ লোড হচ্ছে...</p>
+            </div>
+        </section>
+
+        <!-- Quick Status Grid -->
+        <section class="status-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="ph ph-check-circle"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label" data-bn="আজকের রুটিন" data-en="Today's Routine">আজকের রুটিন</span>
+                    <strong class="stat-value">Phase 3-এ যুক্ত হবে</strong>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon teal"><i class="ph ph-wallet"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label" data-bn="আমার হিসাব" data-en="My Hisab">আমার হিসাব</span>
+                    <strong class="stat-value">Phase 4-এ যুক্ত হবে</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Modules Roadmap (Transparent Status) -->
+        <section class="modules-section">
+            <h3 class="section-title" data-bn="অ্যাপের মূল ফিচারসমূহ (ধাপে ধাপে চালু হচ্ছে)" data-en="Core Modules (Rolling Out Step-by-Step)">অ্যাপের মূল ফিচারসমূহ (ধাপে ধাপে চালু হচ্ছে)</h3>
+            
+            <div class="module-list">
+                <div class="module-item active-phase">
+                    <div class="module-icon"><i class="ph-fill ph-layout"></i></div>
+                    <div class="module-details">
+                        <h4>Core UI & Architecture</h4>
+                        <p>সিস্টেম চালু আছে (Phase 1)</p>
+                    </div>
+                    <span class="status-tag ready">Active</span>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-icon"><i class="ph ph-clock"></i></div>
+                    <div class="module-details">
+                        <h4>Daily Routine (দৈনিক রুটিন)</h4>
+                        <p>প্রতিদিনের কাজ ও সময়সূচি পরিচালনা</p>
+                    </div>
+                    <span class="status-tag upcoming">Phase 3</span>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-icon"><i class="ph ph-currency-bdt"></i></div>
+                    <div class="module-details">
+                        <h4>My Hisab (আয়-ব্যয়ের হিসাব)</h4>
+                        <p>দৈনিক খরচ, বাজেট ও সঞ্চয় ট্র্যাকার</p>
+                    </div>
+                    <span class="status-tag upcoming">Phase 4</span>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-icon"><i class="ph ph-shopping-bag"></i></div>
+                    <div class="module-details">
+                        <h4>Shopping Manager (বাজারের তালিকা)</h4>
+                        <p>পণ্যের পরিমাণ ও সম্ভাব্য দামের হিসাব</p>
+                    </div>
+                    <span class="status-tag upcoming">Phase 5</span>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-icon"><i class="ph ph-users-three"></i></div>
+                    <div class="module-details">
+                        <h4>Family Manager (পরিবার পরিচালনা)</h4>
+                        <p>পরিবারের সদস্য ও শেয়ার্ড কাজের তালিকা</p>
+                    </div>
+                    <span class="status-tag upcoming">Phase 6</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification Container (For Real User Feedback) -->
+    <div id="toastBox" class="toast-box"></div>
+
+    <!-- Bottom Navigation Bar (Mobile-First) -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-tab="home">
+            <i class="ph-fill ph-house"></i>
+            <span data-bn="হোম" data-en="Home">হোম</span>
+        </button>
+        <button class="nav-item" data-tab="services">
+            <i class="ph ph-squares-four"></i>
+            <span data-bn="সেবাসমূহ" data-en="Services">সেবাসমূহ</span>
+        </button>
+        <button class="nav-item" data-tab="routine">
+            <i class="ph ph-list-checks"></i>
+            <span data-bn="রুটিন" data-en="My Routine">রুটিন</span>
+        </button>
+        <button class="nav-item" data-tab="calendar">
+            <i class="ph ph-calendar-blank"></i>
+            <span data-bn="ক্যালেন্ডার" data-en="Calendar">ক্যালেন্ডার</span>
+        </button>
+        <button class="nav-item" data-tab="profile">
+            <i class="ph ph-user-circle"></i>
+            <span data-bn="প্রোফাইল" data-en="Profile">প্রোফাইল</span>
+        </button>
+    </nav>
+
+    <!-- App Logic -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
