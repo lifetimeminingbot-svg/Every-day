@@ -5,6 +5,6 @@
 
 ## Development Progress
 - [x] Phase 1: Project Architecture + Initial UI
-- [ ] Phase 2: Home Dashboard
+- [x] Phase 2: Home Dashboard
 - [ ] Phase 3: Daily Routine System
 - [ ] Phase 4: My Hisab
