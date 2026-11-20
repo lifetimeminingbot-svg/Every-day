@@ -10,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons (Modern Clean Icons) -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -30,6 +30,10 @@
             </div>
         </div>
         <div class="header-right">
+            <button id="notifBtn" class="icon-btn" title="Notifications" aria-label="Notifications">
+                <i class="ph ph-bell"></i>
+                <span class="notif-dot"></span>
+            </button>
             <button id="langToggleBtn" class="lang-btn" title="Change Language">EN / বাং</button>
         </div>
     </header>
@@ -37,43 +41,108 @@
     <!-- Main Content Container -->
     <main class="main-container" id="appContent">
         
-        <!-- Welcome Banner Card -->
+        <!-- Welcome & Today's Overview Banner -->
         <section class="welcome-card">
-            <div class="welcome-text">
-                <span class="badge-live">Phase 1: System Ready</span>
-                <h2 data-bn="স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো" data-en="Welcome! Organize Your Everyday Life">স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো</h2>
-                <p id="currentDateDisplay" class="date-text">তারিখ লোড হচ্ছে...</p>
+            <div class="welcome-top">
+                <span class="badge-live">Phase 2: Home Dashboard</span>
+                <span id="greetingBadge" class="greeting-pill" data-bn="শুভ সকাল" data-en="Good Morning">শুভ সকাল</span>
+            </div>
+            <h2 data-bn="স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো" data-en="Welcome! Organize Your Everyday Life">স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো</h2>
+            <p id="currentDateDisplay" class="date-text">তারিখ লোড হচ্ছে...</p>
+
+            <div class="overview-strip">
+                <div class="overview-item">
+                    <span data-bn="আজকের কাজ" data-en="Today's Tasks">আজকের কাজ</span>
+                    <strong>০ / ০</strong>
+                </div>
+                <div class="overview-divider"></div>
+                <div class="overview-item">
+                    <span data-bn="আজকের খরচ" data-en="Today's Expense">আজকের খরচ</span>
+                    <strong>৳ ০</strong>
+                </div>
+                <div class="overview-divider"></div>
+                <div class="overview-item">
+                    <span data-bn="রিমাইন্ডার" data-en="Reminders">রিমাইন্ডার</span>
+                    <strong>০</strong>
+                </div>
             </div>
         </section>
 
-        <!-- Quick Status Grid -->
-        <section class="status-grid">
-            <div class="stat-card">
-                <div class="stat-icon blue"><i class="ph ph-check-circle"></i></div>
-                <div class="stat-info">
-                    <span class="stat-label" data-bn="আজকের রুটিন" data-en="Today's Routine">আজকের রুটিন</span>
-                    <strong class="stat-value">Phase 3-এ যুক্ত হবে</strong>
-                </div>
+        <!-- Quick Actions (Real Functional Shortcuts) -->
+        <section class="quick-section">
+            <div class="section-header">
+                <h3 class="section-title" data-bn="দ্রুত অ্যাকশন" data-en="Quick Actions">দ্রুত অ্যাকশন</h3>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon teal"><i class="ph ph-wallet"></i></div>
-                <div class="stat-info">
-                    <span class="stat-label" data-bn="আমার হিসাব" data-en="My Hisab">আমার হিসাব</span>
-                    <strong class="stat-value">Phase 4-এ যুক্ত হবে</strong>
-                </div>
+            <div class="quick-grid">
+                <button class="quick-btn" data-quick="routine">
+                    <div class="q-icon blue"><i class="ph-fill ph-plus-circle"></i></div>
+                    <span data-bn="নতুন রুটিন" data-en="Add Routine">নতুন রুটিন</span>
+                </button>
+                <button class="quick-btn" data-quick="expense">
+                    <div class="q-icon teal"><i class="ph-fill ph-receipt"></i></div>
+                    <span data-bn="খরচ যোগ করুন" data-en="Add Expense">খরচ যোগ করুন</span>
+                </button>
+                <button class="quick-btn" data-quick="shopping">
+                    <div class="q-icon indigo"><i class="ph-fill ph-shopping-cart"></i></div>
+                    <span data-bn="বাজার লিস্ট" data-en="Shopping List">বাজার লিস্ট</span>
+                </button>
+                <button class="quick-btn" data-quick="emergency">
+                    <div class="q-icon coral"><i class="ph-fill ph-phone-call"></i></div>
+                    <span data-bn="জরুরি সাহায্য" data-en="Emergency">জরুরি সাহায্য</span>
+                </button>
             </div>
         </section>
 
-        <!-- Core Modules Roadmap (Transparent Status) -->
+        <!-- Today's Routine & Upcoming Tasks -->
+        <section class="dashboard-card">
+            <div class="card-head">
+                <h3 data-bn="আজকের রুটিন ও আসন্ন কাজ" data-en="Today's Routine & Upcoming Tasks">আজকের রুটিন ও আসন্ন কাজ</h3>
+                <span class="mini-tag" data-bn="Phase 3-এ সক্রিয়" data-en="Active in Phase 3">Phase 3-এ সক্রিয়</span>
+            </div>
+            <div class="empty-state">
+                <i class="ph ph-calendar-x"></i>
+                <p data-bn="এখনো কোনো রুটিন বা কাজ যুক্ত করা হয়নি। Phase 3-এ আপনি সহজেই দৈনিক রুটিন তৈরি ও সম্পন্ন করতে পারবেন।" data-en="No routines or tasks added yet. You can create and complete daily routines in Phase 3.">এখনো কোনো রুটিন বা কাজ যুক্ত করা হয়নি। Phase 3-এ আপনি সহজেই দৈনিক রুটিন তৈরি ও সম্পন্ন করতে পারবেন।</p>
+            </div>
+        </section>
+
+        <!-- Important Reminders & Daily Expense Summary -->
+        <section class="split-cards">
+            <div class="dashboard-card compact-card">
+                <div class="card-head">
+                    <h4 data-bn="গুরুত্বপূর্ণ রিমাইন্ডার" data-en="Important Reminders">গুরুত্বপূর্ণ রিমাইন্ডার</h4>
+                    <i class="ph-fill ph-alarm teal-icon"></i>
+                </div>
+                <p class="muted-note" data-bn="বিল, জন্মদিন ও অ্যাপয়েন্টমেন্ট রিমাইন্ডার Phase 7-এ যুক্ত হবে।" data-en="Bill, birthday & appointment reminders arrive in Phase 7.">বিল, জন্মদিন ও অ্যাপয়েন্টমেন্ট রিমাইন্ডার Phase 7-এ যুক্ত হবে।</p>
+            </div>
+
+            <div class="dashboard-card compact-card">
+                <div class="card-head">
+                    <h4 data-bn="দৈনিক খরচের সারসংক্ষেপ" data-en="Daily Expense Summary">দৈনিক খরচের সারসংক্ষেপ</h4>
+                    <i class="ph-fill ph-chart-pie-slice blue-icon"></i>
+                </div>
+                <p class="muted-note" data-bn="আয়-ব্যয়, বাজেট ও সঞ্চয় ট্র্যাকার Phase 4-এ যুক্ত হবে।" data-en="Income, expense, budget & savings arrive in Phase 4.">আয়-ব্যয়, বাজেট ও সঞ্চয় ট্র্যাকার Phase 4-এ যুক্ত হবে।</p>
+            </div>
+        </section>
+
+        <!-- Core Modules Roadmap -->
         <section class="modules-section">
-            <h3 class="section-title" data-bn="অ্যাপের মূল ফিচারসমূহ (ধাপে ধাপে চালু হচ্ছে)" data-en="Core Modules (Rolling Out Step-by-Step)">অ্যাপের মূল ফিচারসমূহ (ধাপে ধাপে চালু হচ্ছে)</h3>
+            <h3 class="section-title" data-bn="অ্যাপের মূল মডিউলসমূহ" data-en="Core App Modules">অ্যাপের মূল মডিউলসমূহ</h3>
             
             <div class="module-list">
-                <div class="module-item active-phase">
-                    <div class="module-icon"><i class="ph-fill ph-layout"></i></div>
+                <div class="module-item completed-phase">
+                    <div class="module-icon"><i class="ph-fill ph-check-square"></i></div>
                     <div class="module-details">
-                        <h4>Core UI & Architecture</h4>
-                        <p>সিস্টেম চালু আছে (Phase 1)</p>
+                        <h4>Phase 1: Core UI & Architecture</h4>
+                        <p data-bn="সিস্টেম আর্কিটেকচার ও প্রাথমিক ডিজাইন সম্পন্ন" data-en="System architecture & initial UI complete">সিস্টেম আর্কিটেকচার ও প্রাথমিক ডিজাইন সম্পন্ন</p>
+                    </div>
+                    <span class="status-tag done">Done</span>
+                </div>
+
+                <div class="module-item active-phase">
+                    <div class="module-icon"><i class="ph-fill ph-house-line"></i></div>
+                    <div class="module-details">
+                        <h4>Phase 2: Home Dashboard</h4>
+                        <p data-bn="হোম ড্যাশবোর্ড ও কুইক অ্যাকশন চালু আছে" data-en="Home dashboard & quick actions active">হোম ড্যাশবোর্ড ও কুইক অ্যাকশন চালু আছে</p>
                     </div>
                     <span class="status-tag ready">Active</span>
                 </div>
@@ -82,7 +151,7 @@
                     <div class="module-icon"><i class="ph ph-clock"></i></div>
                     <div class="module-details">
                         <h4>Daily Routine (দৈনিক রুটিন)</h4>
-                        <p>প্রতিদিনের কাজ ও সময়সূচি পরিচালনা</p>
+                        <p data-bn="দৈনিক, সাপ্তাহিক ও মাসিক রুটিন পরিচালনা" data-en="Daily, weekly & monthly routine management">দৈনিক, সাপ্তাহিক ও মাসিক রুটিন পরিচালনা</p>
                     </div>
                     <span class="status-tag upcoming">Phase 3</span>
                 </div>
@@ -91,7 +160,7 @@
                     <div class="module-icon"><i class="ph ph-currency-bdt"></i></div>
                     <div class="module-details">
                         <h4>My Hisab (আয়-ব্যয়ের হিসাব)</h4>
-                        <p>দৈনিক খরচ, বাজেট ও সঞ্চয় ট্র্যাকার</p>
+                        <p data-bn="দৈনিক খরচ, বাজেট, ধার-দেনা ও সঞ্চয়" data-en="Expenses, budget, loans & savings">দৈনিক খরচ, বাজেট, ধার-দেনা ও সঞ্চয়</p>
                     </div>
                     <span class="status-tag upcoming">Phase 4</span>
                 </div>
@@ -100,7 +169,7 @@
                     <div class="module-icon"><i class="ph ph-shopping-bag"></i></div>
                     <div class="module-details">
                         <h4>Shopping Manager (বাজারের তালিকা)</h4>
-                        <p>পণ্যের পরিমাণ ও সম্ভাব্য দামের হিসাব</p>
+                        <p data-bn="পণ্যের পরিমাণ, আনুমানিক দাম ও বাজেট" data-en="Quantity, estimated price & total budget">পণ্যের পরিমাণ, আনুমানিক দাম ও বাজেট</p>
                     </div>
                     <span class="status-tag upcoming">Phase 5</span>
                 </div>
@@ -109,7 +178,7 @@
                     <div class="module-icon"><i class="ph ph-users-three"></i></div>
                     <div class="module-details">
                         <h4>Family Manager (পরিবার পরিচালনা)</h4>
-                        <p>পরিবারের সদস্য ও শেয়ার্ড কাজের তালিকা</p>
+                        <p data-bn="পরিবারের সদস্য, শেয়ার্ড লিস্ট ও নোটস" data-en="Family members, shared list & notes">পরিবারের সদস্য, শেয়ার্ড লিস্ট ও নোটস</p>
                     </div>
                     <span class="status-tag upcoming">Phase 6</span>
                 </div>
@@ -118,10 +187,27 @@
 
     </main>
 
-    <!-- Toast Notification Container (For Real User Feedback) -->
+    <!-- Notifications Drawer / Modal -->
+    <div id="notifPanel" class="notif-panel" aria-hidden="true">
+        <div class="notif-header">
+            <h4 data-bn="নোটিফিকেশন" data-en="Notifications">নোটিফিকেশন</h4>
+            <button id="closeNotifBtn" class="close-btn" aria-label="Close"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="notif-body">
+            <div class="notif-item">
+                <i class="ph-fill ph-sparkle"></i>
+                <div>
+                    <strong data-bn="Phase 2 আপডেট লাইভ!" data-en="Phase 2 Update Live!">Phase 2 আপডেট লাইভ!</strong>
+                    <p data-bn="Home Dashboard এবং Quick Actions যুক্ত করা হয়েছে। পুশ নোটিফিকেশন Phase 10-এ আসবে।" data-en="Home Dashboard & Quick Actions added. Push notifications arrive in Phase 10.">Home Dashboard এবং Quick Actions যুক্ত করা হয়েছে। পুশ নোটিফিকেশন Phase 10-এ আসবে।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
     <div id="toastBox" class="toast-box"></div>
 
-    <!-- Bottom Navigation Bar (Mobile-First) -->
+    <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
         <button class="nav-item active" data-tab="home">
             <i class="ph-fill ph-house"></i>
@@ -146,6 +232,6 @@
     </nav>
 
     <!-- App Logic -->
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
