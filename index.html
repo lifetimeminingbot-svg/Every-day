@@ -41,153 +41,342 @@
     <!-- Main Content Container -->
     <main class="main-container" id="appContent">
         
-        <!-- Welcome & Today's Overview Banner -->
-        <section class="welcome-card">
-            <div class="welcome-top">
-                <span class="badge-live">Phase 2: Home Dashboard</span>
-                <span id="greetingBadge" class="greeting-pill" data-bn="শুভ সকাল" data-en="Good Morning">শুভ সকাল</span>
-            </div>
-            <h2 data-bn="স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো" data-en="Welcome! Organize Your Everyday Life">স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো</h2>
-            <p id="currentDateDisplay" class="date-text">তারিখ লোড হচ্ছে...</p>
+        <!-- HOME VIEW -->
+        <div id="homeView" class="view-section active">
+            <!-- Welcome & Today's Overview Banner -->
+            <section class="welcome-card">
+                <div class="welcome-top">
+                    <span class="badge-live">Phase 4: Hisab Live</span>
+                    <span id="greetingBadge" class="greeting-pill" data-bn="শুভ সকাল" data-en="Good Morning">শুভ সকাল</span>
+                </div>
+                <h2 data-bn="স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো" data-en="Welcome! Organize Your Everyday Life">স্বাগতম! আপনার প্রতিদিনের জীবন হোক গোছানো</h2>
+                <p id="currentDateDisplay" class="date-text">তারিখ লোড হচ্ছে...</p>
 
-            <div class="overview-strip">
-                <div class="overview-item">
-                    <span data-bn="আজকের কাজ" data-en="Today's Tasks">আজকের কাজ</span>
-                    <strong>০ / ০</strong>
+                <div class="overview-strip">
+                    <div class="overview-item">
+                        <span data-bn="আজকের কাজ" data-en="Today's Tasks">আজকের কাজ</span>
+                        <strong id="homeTaskCount">০ / ০</strong>
+                    </div>
+                    <div class="overview-divider"></div>
+                    <div class="overview-item">
+                        <span data-bn="আজকের খরচ" data-en="Today's Expense">আজকের খরচ</span>
+                        <strong id="homeTodayExpense">৳ ০</strong>
+                    </div>
+                    <div class="overview-divider"></div>
+                    <div class="overview-item">
+                        <span data-bn="রিমাইন্ডার" data-en="Reminders">রিমাইন্ডার</span>
+                        <strong>০</strong>
+                    </div>
                 </div>
-                <div class="overview-divider"></div>
-                <div class="overview-item">
-                    <span data-bn="আজকের খরচ" data-en="Today's Expense">আজকের খরচ</span>
-                    <strong>৳ ০</strong>
-                </div>
-                <div class="overview-divider"></div>
-                <div class="overview-item">
-                    <span data-bn="রিমাইন্ডার" data-en="Reminders">রিমাইন্ডার</span>
-                    <strong>০</strong>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Quick Actions (Real Functional Shortcuts) -->
-        <section class="quick-section">
-            <div class="section-header">
+            <!-- Quick Actions -->
+            <section class="quick-section">
                 <h3 class="section-title" data-bn="দ্রুত অ্যাকশন" data-en="Quick Actions">দ্রুত অ্যাকশন</h3>
-            </div>
-            <div class="quick-grid">
-                <button class="quick-btn" data-quick="routine">
-                    <div class="q-icon blue"><i class="ph-fill ph-plus-circle"></i></div>
-                    <span data-bn="নতুন রুটিন" data-en="Add Routine">নতুন রুটিন</span>
-                </button>
-                <button class="quick-btn" data-quick="expense">
-                    <div class="q-icon teal"><i class="ph-fill ph-receipt"></i></div>
-                    <span data-bn="খরচ যোগ করুন" data-en="Add Expense">খরচ যোগ করুন</span>
-                </button>
-                <button class="quick-btn" data-quick="shopping">
-                    <div class="q-icon indigo"><i class="ph-fill ph-shopping-cart"></i></div>
-                    <span data-bn="বাজার লিস্ট" data-en="Shopping List">বাজার লিস্ট</span>
-                </button>
-                <button class="quick-btn" data-quick="emergency">
-                    <div class="q-icon coral"><i class="ph-fill ph-phone-call"></i></div>
-                    <span data-bn="জরুরি সাহায্য" data-en="Emergency">জরুরি সাহায্য</span>
-                </button>
-            </div>
-        </section>
+                <div class="quick-grid">
+                    <button class="quick-btn" data-quick="routine">
+                        <div class="q-icon blue"><i class="ph-fill ph-plus-circle"></i></div>
+                        <span data-bn="নতুন রুটিন" data-en="Add Routine">নতুন রুটিন</span>
+                    </button>
+                    <button class="quick-btn" data-quick="expense">
+                        <div class="q-icon teal"><i class="ph-fill ph-receipt"></i></div>
+                        <span data-bn="খরচ যোগ করুন" data-en="Add Expense">খরচ যোগ করুন</span>
+                    </button>
+                    <button class="quick-btn" data-quick="shopping">
+                        <div class="q-icon indigo"><i class="ph-fill ph-shopping-cart"></i></div>
+                        <span data-bn="বাজার লিস্ট" data-en="Shopping List">বাজার লিস্ট</span>
+                    </button>
+                    <button class="quick-btn" data-quick="emergency">
+                        <div class="q-icon coral"><i class="ph-fill ph-phone-call"></i></div>
+                        <span data-bn="জরুরি সাহায্য" data-en="Emergency">জরুরি সাহায্য</span>
+                    </button>
+                </div>
+            </section>
 
-        <!-- Today's Routine & Upcoming Tasks -->
-        <section class="dashboard-card">
-            <div class="card-head">
-                <h3 data-bn="আজকের রুটিন ও আসন্ন কাজ" data-en="Today's Routine & Upcoming Tasks">আজকের রুটিন ও আসন্ন কাজ</h3>
-                <span class="mini-tag" data-bn="Phase 3-এ সক্রিয়" data-en="Active in Phase 3">Phase 3-এ সক্রিয়</span>
-            </div>
-            <div class="empty-state">
-                <i class="ph ph-calendar-x"></i>
-                <p data-bn="এখনো কোনো রুটিন বা কাজ যুক্ত করা হয়নি। Phase 3-এ আপনি সহজেই দৈনিক রুটিন তৈরি ও সম্পন্ন করতে পারবেন।" data-en="No routines or tasks added yet. You can create and complete daily routines in Phase 3.">এখনো কোনো রুটিন বা কাজ যুক্ত করা হয়নি। Phase 3-এ আপনি সহজেই দৈনিক রুটিন তৈরি ও সম্পন্ন করতে পারবেন।</p>
-            </div>
-        </section>
-
-        <!-- Important Reminders & Daily Expense Summary -->
-        <section class="split-cards">
-            <div class="dashboard-card compact-card">
+            <!-- Today's Routine & Upcoming Tasks -->
+            <section class="dashboard-card">
                 <div class="card-head">
-                    <h4 data-bn="গুরুত্বপূর্ণ রিমাইন্ডার" data-en="Important Reminders">গুরুত্বপূর্ণ রিমাইন্ডার</h4>
-                    <i class="ph-fill ph-alarm teal-icon"></i>
+                    <h3 data-bn="আজকের রুটিন ও আসন্ন কাজ" data-en="Today's Routine & Upcoming Tasks">আজকের রুটিন ও আসন্ন কাজ</h3>
+                    <button id="goToRoutineBtn" class="link-btn" data-bn="সব দেখুন →" data-en="View All →">সব দেখুন →</button>
                 </div>
-                <p class="muted-note" data-bn="বিল, জন্মদিন ও অ্যাপয়েন্টমেন্ট রিমাইন্ডার Phase 7-এ যুক্ত হবে।" data-en="Bill, birthday & appointment reminders arrive in Phase 7.">বিল, জন্মদিন ও অ্যাপয়েন্টমেন্ট রিমাইন্ডার Phase 7-এ যুক্ত হবে।</p>
+                <div id="homeRoutinePreview" class="preview-list"></div>
+            </section>
+
+            <!-- Important Reminders & Daily Expense Summary -->
+            <section class="split-cards">
+                <div class="dashboard-card compact-card">
+                    <div class="card-head">
+                        <h4 data-bn="গুরুত্বপূর্ণ রিমাইন্ডার" data-en="Important Reminders">গুরুত্বপূর্ণ রিমাইন্ডার</h4>
+                        <i class="ph-fill ph-alarm teal-icon"></i>
+                    </div>
+                    <p class="muted-note" data-bn="বিল, জন্মদিন ও অ্যাপয়েন্টমেন্ট রিমাইন্ডার Phase 7-এ যুক্ত হবে।" data-en="Bill, birthday & appointment reminders arrive in Phase 7.">বিল, জন্মদিন ও অ্যাপয়েন্টমেন্ট রিমাইন্ডার Phase 7-এ যুক্ত হবে।</p>
+                </div>
+
+                <div class="dashboard-card compact-card">
+                    <div class="card-head">
+                        <h4 data-bn="দৈনিক খরচের সারসংক্ষেপ" data-en="Daily Expense Summary">দৈনিক খরচের সারসংক্ষেপ</h4>
+                        <button id="goToHisabBtn" class="link-btn" data-bn="হিসাব →" data-en="Hisab →">হিসাব →</button>
+                    </div>
+                    <p id="homeHisabSummary" class="muted-note" data-bn="আজকের খরচ: ৳ ০ | ব্যালেন্স: ৳ ০" data-en="Today Expense: ৳ 0 | Balance: ৳ 0">আজকের খরচ: ৳ ০ | ব্যালেন্স: ৳ ০</p>
+                </div>
+            </section>
+
+            <!-- Core Modules Roadmap -->
+            <section class="modules-section">
+                <h3 class="section-title" data-bn="অ্যাপের মূল মডিউলসমূহ" data-en="Core App Modules">অ্যাপের মূল মডিউলসমূহ</h3>
+                <div class="module-list">
+                    <div class="module-item completed-phase">
+                        <div class="module-icon"><i class="ph-fill ph-check-square"></i></div>
+                        <div class="module-details">
+                            <h4>Phase 1: Core UI & Architecture</h4>
+                            <p data-bn="সিস্টেম আর্কিটেকচার ও প্রাথমিক ডিজাইন সম্পন্ন" data-en="System architecture & initial UI complete">সিস্টেম আর্কিটেকচার ও প্রাথমিক ডিজাইন সম্পন্ন</p>
+                        </div>
+                        <span class="status-tag done">Done</span>
+                    </div>
+
+                    <div class="module-item completed-phase">
+                        <div class="module-icon"><i class="ph-fill ph-house-line"></i></div>
+                        <div class="module-details">
+                            <h4>Phase 2: Home Dashboard</h4>
+                            <p data-bn="হোম ড্যাশবোর্ড ও কুইক অ্যাকশন সম্পন্ন" data-en="Home dashboard & quick actions complete">হোম ড্যাশবোর্ড ও কুইক অ্যাকশন সম্পন্ন</p>
+                        </div>
+                        <span class="status-tag done">Done</span>
+                    </div>
+
+                    <div class="module-item completed-phase">
+                        <div class="module-icon"><i class="ph-fill ph-clock"></i></div>
+                        <div class="module-details">
+                            <h4>Phase 3: Daily Routine System</h4>
+                            <p data-bn="দৈনিক, সাপ্তাহিক, মাসিক ও কাস্টম রুটিন সম্পন্ন" data-en="Daily, weekly, monthly & custom routine complete">দৈনিক, সাপ্তাহিক, মাসিক ও কাস্টম রুটিন সম্পন্ন</p>
+                        </div>
+                        <span class="status-tag done">Done</span>
+                    </div>
+
+                    <div class="module-item active-phase">
+                        <div class="module-icon"><i class="ph-fill ph-currency-bdt"></i></div>
+                        <div class="module-details">
+                            <h4>Phase 4: My Hisab (আয়-ব্যয়ের হিসাব)</h4>
+                            <p data-bn="আয়, ব্যয়, বাজেট, সঞ্চয় ও ধার-দেনা চালু আছে" data-en="Income, expense, budget, savings & loans active">আয়, ব্যয়, বাজেট, সঞ্চয় ও ধার-দেনা চালু আছে</p>
+                        </div>
+                        <span class="status-tag ready">Active</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ROUTINE VIEW (Phase 3) -->
+        <div id="routineView" class="view-section">
+            <section class="routine-header-card">
+                <div>
+                    <h2 data-bn="রুটিন ও কাজ পরিচালনা" data-en="Routine & Task Manager">রুটিন ও কাজ পরিচালনা</h2>
+                    <p id="routineStatsText" data-bn="মোট কাজ: ০ | সম্পন্ন: ০" data-en="Total: 0 | Completed: 0">মোট কাজ: ০ | সম্পন্ন: ০</p>
+                </div>
+                <button id="openAddRoutineBtn" class="primary-btn">
+                    <i class="ph-bold ph-plus"></i>
+                    <span data-bn="নতুন কাজ" data-en="New Task">নতুন কাজ</span>
+                </button>
+            </section>
+
+            <div class="filter-tabs" id="routineTabs">
+                <button class="filter-tab active" data-freq="all" data-bn="সব" data-en="All">সব</button>
+                <button class="filter-tab" data-freq="daily" data-bn="দৈনিক" data-en="Daily">দৈনিক</button>
+                <button class="filter-tab" data-freq="weekly" data-bn="সাপ্তাহিক" data-en="Weekly">সাপ্তাহিক</button>
+                <button class="filter-tab" data-freq="monthly" data-bn="মাসিক" data-en="Monthly">মাসিক</button>
+                <button class="filter-tab" data-freq="custom" data-bn="কাস্টম" data-en="Custom">কাস্টম</button>
             </div>
 
-            <div class="dashboard-card compact-card">
+            <form id="routineForm" class="dashboard-card routine-form hidden">
                 <div class="card-head">
-                    <h4 data-bn="দৈনিক খরচের সারসংক্ষেপ" data-en="Daily Expense Summary">দৈনিক খরচের সারসংক্ষেপ</h4>
-                    <i class="ph-fill ph-chart-pie-slice blue-icon"></i>
+                    <h4 data-bn="নতুন রুটিন বা কাজ যোগ করুন" data-en="Add New Routine or Task">নতুন রুটিন বা কাজ যোগ করুন</h4>
+                    <button type="button" id="cancelRoutineBtn" class="close-btn"><i class="ph ph-x"></i></button>
                 </div>
-                <p class="muted-note" data-bn="আয়-ব্যয়, বাজেট ও সঞ্চয় ট্র্যাকার Phase 4-এ যুক্ত হবে।" data-en="Income, expense, budget & savings arrive in Phase 4.">আয়-ব্যয়, বাজেট ও সঞ্চয় ট্র্যাকার Phase 4-এ যুক্ত হবে।</p>
+
+                <div class="form-group">
+                    <label data-bn="কাজের নাম *" data-en="Task Title *">কাজের নাম *</label>
+                    <input type="text" id="taskTitle" required placeholder="যেমন: সকাল ৭টায় হাঁটা বা ওষুধ খাওয়া">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-bn="সময়সূচি" data-en="Schedule Type">সময়সূচি</label>
+                        <select id="taskFreq">
+                            <option value="daily">দৈনিক (Daily)</option>
+                            <option value="weekly">সাপ্তাহিক (Weekly)</option>
+                            <option value="monthly">মাসিক (Monthly)</option>
+                            <option value="custom">কাস্টম (Custom)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-bn="সময় (ঐচ্ছিক)" data-en="Time (Optional)">সময় (ঐচ্ছিক)</label>
+                        <input type="time" id="taskTime">
+                    </div>
+                </div>
+
+                <div class="form-group" id="customTagGroup" style="display: none;">
+                    <label data-bn="কাস্টম লেবেল/নোট" data-en="Custom Label/Note">কাস্টম লেবেল/নোট</label>
+                    <input type="text" id="taskCustomLabel" placeholder="যেমন: ছুটির দিন / বিশেষ কাজ">
+                </div>
+
+                <button type="submit" class="submit-btn" data-bn="রুটিন সেভ করুন" data-en="Save Routine">রুটিন সেভ করুন</button>
+            </form>
+
+            <section class="dashboard-card">
+                <div class="card-head">
+                    <h3 data-bn="চলমান কাজসমূহ" data-en="Active Tasks">চলমান কাজসমূহ</h3>
+                </div>
+                <div id="activeTasksList" class="task-list"></div>
+            </section>
+
+            <section class="dashboard-card">
+                <div class="card-head">
+                    <h3 data-bn="সম্পন্ন কাজসমূহ (Completed)" data-en="Completed Tasks">সম্পন্ন কাজসমূহ (Completed)</h3>
+                    <button id="clearCompletedBtn" class="danger-link-btn" data-bn="সম্পন্নগুলো মুছুন" data-en="Clear Done">সম্পন্নগুলো মুছুন</button>
+                </div>
+                <div id="completedTasksList" class="task-list"></div>
+            </section>
+        </div>
+
+        <!-- MY HISAB VIEW (Phase 4 Full System) -->
+        <div id="hisabView" class="view-section">
+            <section class="welcome-card hisab-banner">
+                <div class="welcome-top">
+                    <span class="badge-live">Phase 4: My Hisab</span>
+                    <button id="openAddHisabBtn" class="light-action-btn">
+                        <i class="ph-bold ph-plus"></i>
+                        <span data-bn="নতুন হিসাব" data-en="Add Entry">নতুন হিসাব</span>
+                    </button>
+                </div>
+                <div class="hisab-metrics">
+                    <div>
+                        <span data-bn="মোট আয়" data-en="Total Income">মোট আয়</span>
+                        <strong id="totalIncomeVal">৳ ০</strong>
+                    </div>
+                    <div>
+                        <span data-bn="মোট ব্যয়" data-en="Total Expense">মোট ব্যয়</span>
+                        <strong id="totalExpenseVal">৳ ০</strong>
+                    </div>
+                    <div>
+                        <span data-bn="বর্তমান ব্যালেন্স" data-en="Balance">বর্তমান ব্যালেন্স</span>
+                        <strong id="netBalanceVal">৳ ০</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monthly Budget & Savings Tracker -->
+            <section class="split-cards">
+                <div class="dashboard-card compact-card">
+                    <div class="card-head">
+                        <h4 data-bn="মাসিক বাজেট" data-en="Monthly Budget">মাসিক বাজেট</h4>
+                        <button id="editBudgetBtn" class="link-btn" data-bn="সেট করুন" data-en="Set">সেট করুন</button>
+                    </div>
+                    <p id="budgetStatusText" class="muted-note">বাজেট সেট করা হয়নি</p>
+                    <div class="progress-track">
+                        <div id="budgetProgressBar" class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card compact-card">
+                    <div class="card-head">
+                        <h4 data-bn="সঞ্চয় (Savings)" data-en="Savings Tracker">সঞ্চয় (Savings)</h4>
+                        <i class="ph-fill ph-piggy-bank teal-icon"></i>
+                    </div>
+                    <strong id="savingsAmountVal" class="big-stat">৳ ০</strong>
+                    <p class="muted-note" data-bn="সঞ্চয় এন্ট্রি থেকে হিসাবকৃত" data-en="Calculated from savings entries">সঞ্চয় এন্ট্রি থেকে হিসাবকৃত</p>
+                </div>
+            </section>
+
+            <!-- Borrowed & Lent Money Summary -->
+            <section class="split-cards">
+                <div class="dashboard-card compact-card">
+                    <div class="card-head">
+                        <h4 data-bn="ধার নিয়েছি (Borrowed)" data-en="Borrowed Money">ধার নিয়েছি (Borrowed)</h4>
+                        <i class="ph-fill ph-arrow-down-left coral-icon"></i>
+                    </div>
+                    <strong id="borrowedVal" class="med-stat">৳ ০</strong>
+                </div>
+
+                <div class="dashboard-card compact-card">
+                    <div class="card-head">
+                        <h4 data-bn="ধার দিয়েছি (Lent)" data-en="Lent Money">ধার দিয়েছি (Lent)</h4>
+                        <i class="ph-fill ph-arrow-up-right blue-icon"></i>
+                    </div>
+                    <strong id="lentVal" class="med-stat">৳ ০</strong>
+                </div>
+            </section>
+
+            <!-- Budget Input Box (Hidden by default) -->
+            <div id="budgetBox" class="dashboard-card routine-form hidden">
+                <div class="card-head">
+                    <h4 data-bn="মাসিক বাজেট নির্ধারণ করুন (৳)" data-en="Set Monthly Budget (৳)">মাসিক বাজেট নির্ধারণ করুন (৳)</h4>
+                    <button type="button" id="cancelBudgetBtn" class="close-btn"><i class="ph ph-x"></i></button>
+                </div>
+                <div class="form-row">
+                    <input type="number" id="monthlyBudgetInput" min="0" step="any" placeholder="যেমন: ২৫০০০">
+                    <button type="button" id="saveBudgetBtn" class="primary-btn" data-bn="সেভ" data-en="Save">সেভ</button>
+                </div>
             </div>
-        </section>
 
-        <!-- Core Modules Roadmap -->
-        <section class="modules-section">
-            <h3 class="section-title" data-bn="অ্যাপের মূল মডিউলসমূহ" data-en="Core App Modules">অ্যাপের মূল মডিউলসমূহ</h3>
-            
-            <div class="module-list">
-                <div class="module-item completed-phase">
-                    <div class="module-icon"><i class="ph-fill ph-check-square"></i></div>
-                    <div class="module-details">
-                        <h4>Phase 1: Core UI & Architecture</h4>
-                        <p data-bn="সিস্টেম আর্কিটেকচার ও প্রাথমিক ডিজাইন সম্পন্ন" data-en="System architecture & initial UI complete">সিস্টেম আর্কিটেকচার ও প্রাথমিক ডিজাইন সম্পন্ন</p>
-                    </div>
-                    <span class="status-tag done">Done</span>
+            <!-- Add Income / Expense / Savings / Borrow / Lent Form -->
+            <form id="hisabForm" class="dashboard-card routine-form hidden">
+                <div class="card-head">
+                    <h4 data-bn="নতুন লেনদেন যুক্ত করুন" data-en="Add New Transaction">নতুন লেনদেন যুক্ত করুন</h4>
+                    <button type="button" id="cancelHisabBtn" class="close-btn"><i class="ph ph-x"></i></button>
                 </div>
 
-                <div class="module-item active-phase">
-                    <div class="module-icon"><i class="ph-fill ph-house-line"></i></div>
-                    <div class="module-details">
-                        <h4>Phase 2: Home Dashboard</h4>
-                        <p data-bn="হোম ড্যাশবোর্ড ও কুইক অ্যাকশন চালু আছে" data-en="Home dashboard & quick actions active">হোম ড্যাশবোর্ড ও কুইক অ্যাকশন চালু আছে</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-bn="ধরন" data-en="Type">ধরন</label>
+                        <select id="hisabType">
+                            <option value="expense">ব্যয় (Expense)</option>
+                            <option value="income">আয় (Income)</option>
+                            <option value="savings">সঞ্চয় (Savings)</option>
+                            <option value="borrowed">ধার নিয়েছি (Borrowed)</option>
+                            <option value="lent">ধার দিয়েছি (Lent)</option>
+                        </select>
                     </div>
-                    <span class="status-tag ready">Active</span>
+                    <div class="form-group">
+                        <label data-bn="টাকার পরিমাণ (৳) *" data-en="Amount (৳) *">টাকার পরিমাণ (৳) *</label>
+                        <input type="number" id="hisabAmount" min="1" step="any" required placeholder="যেমন: ৩৫০">
+                    </div>
                 </div>
 
-                <div class="module-item">
-                    <div class="module-icon"><i class="ph ph-clock"></i></div>
-                    <div class="module-details">
-                        <h4>Daily Routine (দৈনিক রুটিন)</h4>
-                        <p data-bn="দৈনিক, সাপ্তাহিক ও মাসিক রুটিন পরিচালনা" data-en="Daily, weekly & monthly routine management">দৈনিক, সাপ্তাহিক ও মাসিক রুটিন পরিচালনা</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-bn="বিবরণ / খাত *" data-en="Note / Category *">বিবরণ / খাত *</label>
+                        <input type="text" id="hisabNote" required placeholder="যেমন: বাজার, বেতন, রিকশা ভাড়া">
                     </div>
-                    <span class="status-tag upcoming">Phase 3</span>
+                    <div class="form-group">
+                        <label data-bn="তারিখ" data-en="Date">তারিখ</label>
+                        <input type="date" id="hisabDate">
+                    </div>
                 </div>
 
-                <div class="module-item">
-                    <div class="module-icon"><i class="ph ph-currency-bdt"></i></div>
-                    <div class="module-details">
-                        <h4>My Hisab (আয়-ব্যয়ের হিসাব)</h4>
-                        <p data-bn="দৈনিক খরচ, বাজেট, ধার-দেনা ও সঞ্চয়" data-en="Expenses, budget, loans & savings">দৈনিক খরচ, বাজেট, ধার-দেনা ও সঞ্চয়</p>
-                    </div>
-                    <span class="status-tag upcoming">Phase 4</span>
+                <button type="submit" class="submit-btn" data-bn="হিসাবে যুক্ত করুন" data-en="Save Entry">হিসাবে যুক্ত করুন</button>
+            </form>
+
+            <!-- Filter & Expense History / Reports -->
+            <section class="dashboard-card">
+                <div class="card-head">
+                    <h3 data-bn="হিসাবের তালিকা ও রিপোর্ট" data-en="Expense History & Reports">হিসাবের তালিকা ও রিপোর্ট</h3>
+                    <span id="reportSummaryBadge" class="mini-badge">০ এন্ট্রি</span>
                 </div>
 
-                <div class="module-item">
-                    <div class="module-icon"><i class="ph ph-shopping-bag"></i></div>
-                    <div class="module-details">
-                        <h4>Shopping Manager (বাজারের তালিকা)</h4>
-                        <p data-bn="পণ্যের পরিমাণ, আনুমানিক দাম ও বাজেট" data-en="Quantity, estimated price & total budget">পণ্যের পরিমাণ, আনুমানিক দাম ও বাজেট</p>
-                    </div>
-                    <span class="status-tag upcoming">Phase 5</span>
+                <div class="filter-tabs" id="hisabFilterTabs" style="margin-bottom: 10px;">
+                    <button class="filter-tab active" data-htype="all" data-bn="সব" data-en="All">সব</button>
+                    <button class="filter-tab" data-htype="expense" data-bn="ব্যয়" data-en="Expense">ব্যয়</button>
+                    <button class="filter-tab" data-htype="income" data-bn="আয়" data-en="Income">আয়</button>
+                    <button class="filter-tab" data-htype="savings" data-bn="সঞ্চয়" data-en="Savings">সঞ্চয়</button>
+                    <button class="filter-tab" data-htype="borrowed" data-bn="ধার নেওয়া" data-en="Borrowed">ধার নেওয়া</button>
+                    <button class="filter-tab" data-htype="lent" data-bn="ধার দেওয়া" data-en="Lent">ধার দেওয়া</button>
                 </div>
 
-                <div class="module-item">
-                    <div class="module-icon"><i class="ph ph-users-three"></i></div>
-                    <div class="module-details">
-                        <h4>Family Manager (পরিবার পরিচালনা)</h4>
-                        <p data-bn="পরিবারের সদস্য, শেয়ার্ড লিস্ট ও নোটস" data-en="Family members, shared list & notes">পরিবারের সদস্য, শেয়ার্ড লিস্ট ও নোটস</p>
-                    </div>
-                    <span class="status-tag upcoming">Phase 6</span>
-                </div>
-            </div>
-        </section>
+                <div id="hisabList" class="task-list"></div>
+            </section>
+        </div>
 
     </main>
 
-    <!-- Notifications Drawer / Modal -->
+    <!-- Notifications Drawer -->
     <div id="notifPanel" class="notif-panel" aria-hidden="true">
         <div class="notif-header">
             <h4 data-bn="নোটিফিকেশন" data-en="Notifications">নোটিফিকেশন</h4>
@@ -197,8 +386,8 @@
             <div class="notif-item">
                 <i class="ph-fill ph-sparkle"></i>
                 <div>
-                    <strong data-bn="Phase 2 আপডেট লাইভ!" data-en="Phase 2 Update Live!">Phase 2 আপডেট লাইভ!</strong>
-                    <p data-bn="Home Dashboard এবং Quick Actions যুক্ত করা হয়েছে। পুশ নোটিফিকেশন Phase 10-এ আসবে।" data-en="Home Dashboard & Quick Actions added. Push notifications arrive in Phase 10.">Home Dashboard এবং Quick Actions যুক্ত করা হয়েছে। পুশ নোটিফিকেশন Phase 10-এ আসবে।</p>
+                    <strong data-bn="Phase 3 ও Phase 4 চালু হয়েছে!" data-en="Phase 3 & Phase 4 Live!">Phase 3 ও Phase 4 চালু হয়েছে!</strong>
+                    <p data-bn="এখন আপনি রুটিন ম্যানেজার এবং আমার হিসাব (আয়, ব্যয়, বাজেট, সঞ্চয় ও ধার-দেনা) ব্যবহার করতে পারবেন।" data-en="You can now use Routine Manager and My Hisab (income, expense, budget, savings & loans).">এখন আপনি রুটিন ম্যানেজার এবং আমার হিসাব (আয়, ব্যয়, বাজেট, সঞ্চয় ও ধার-দেনা) ব্যবহার করতে পারবেন।</p>
                 </div>
             </div>
         </div>
@@ -214,19 +403,19 @@
             <span data-bn="হোম" data-en="Home">হোম</span>
         </button>
         <button class="nav-item" data-tab="services">
-            <i class="ph ph-squares-four"></i>
+            <i class="ph-fill ph-squares-four"></i>
             <span data-bn="সেবাসমূহ" data-en="Services">সেবাসমূহ</span>
         </button>
         <button class="nav-item" data-tab="routine">
-            <i class="ph ph-list-checks"></i>
+            <i class="ph-fill ph-list-checks"></i>
             <span data-bn="রুটিন" data-en="My Routine">রুটিন</span>
         </button>
-        <button class="nav-item" data-tab="calendar">
-            <i class="ph ph-calendar-blank"></i>
-            <span data-bn="ক্যালেন্ডার" data-en="Calendar">ক্যালেন্ডার</span>
+        <button class="nav-item" data-tab="hisab">
+            <i class="ph-fill ph-wallet"></i>
+            <span data-bn="হিসাব" data-en="Hisab">হিসাব</span>
         </button>
         <button class="nav-item" data-tab="profile">
-            <i class="ph ph-user-circle"></i>
+            <i class="ph-fill ph-user-circle"></i>
             <span data-bn="প্রোফাইল" data-en="Profile">প্রোফাইল</span>
         </button>
     </nav>
